@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Web Terminal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/style.css" rel="stylesheet">
+        <script src="assets/main.js"></script>
+    </head>
+    <body onload="str()">
+    <div class="main-panel">
+        <p id="output"></p>
+        <p>Enter a Command To Execute: </p>
+        <input class="input-f" onkeydown="rts(event)" id="input1">
+        <button class="go-f" onclick="rts()">Enter</button>
+        <!-- to-do : fix the button -->
+    </div>
+    </body>
+</html>

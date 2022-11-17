@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('JetBrainMono.woff');
+}
+body {
+    background-color: #000;
+}
+.main-panel {
+    color: #247a31;
+    font-family: 'JetBrains Mono', sans-serif;
+}
+.main-panel .input-f {
+    color: #247a31;
+    background-color: #000;
+    border-radius: 5px;
+}
+.main-panel .go-f {
+    color: #247a31;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 4px;
+    opacity: 0.5;
+    transition: 1s;
+}
+.go-f:hover {
+    opacity: 1;
+    background-color: rgb(17, 17, 17);
+}
+input:focus{
+    outline: none;
+}
