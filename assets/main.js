@@ -5,10 +5,15 @@ function popup() {
 function rts(event) {
     var input1 = document.getElementById("input1").value;
     var keys = event.key;
+    var ecohc = input1.indexOf('echo');
     if (keys == "Enter") {
-        if (input1 == "echo") {
-            document.getElementById("output").innerHTML += "ECHO is on" + "<br />";
-            console.log('"echo" Command Executed');
+        if (ecohc != -1) {
+            var ecoh = input1.slice(5,5000);
+            if (ecoh == "" || ecoh == " ") {
+                document.getElementById("output").innerHTML += 'Echo is On.' + "<br />";
+            }
+            console.log('"echo" Command Executed ' + 'Content: ' + ecoh);
+            document.getElementById("output").innerHTML += '<p>'+ ecoh + '</p>' + "<br />";
             document.getElementById("input1").value = "";
         } else if (input1 == "help") {
             document.getElementById("output").innerHTML += "Available Commands:" + "<br />";

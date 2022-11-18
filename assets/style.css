@@ -95,4 +95,6 @@ a:link {
     list-style-position: inside;
     text-align: center;
   }
-  
+#output {
+    padding: 3px;
+}  
