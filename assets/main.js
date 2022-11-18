@@ -2,7 +2,9 @@ window.onload = function() {
     var inputrsf = document.getElementById("input1").focus();
     console.log('Successfully Loaded All of Commands.');
   }
-
+function popup() {
+    document.getElementById("popup1").style.display = "none";
+}
 function rts(event) {
     var input1 = document.getElementById("input1").value;
     var keys = event.key;
@@ -19,6 +21,7 @@ function rts(event) {
             document.getElementById("output").innerHTML += "/assets/" + "<br />";
             document.getElementById("output").innerHTML += "    > favicon.ico" + "<br />";
             document.getElementById("output").innerHTML += "    > JetBrainMono.woff" + "<br />";
+            document.getElementById("output").innerHTML += "    > JetBrainsMonoBold.woff" + "<br />";
             document.getElementById("output").innerHTML += "    > main.js" + "<br />";
             document.getElementById("output").innerHTML += "    > style.css" + "<br />";
             document.getElementById("input1").value = "";
@@ -30,4 +33,5 @@ function rts(event) {
 }
 function str() {
     document.getElementById("output").innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
+    const vvdr = setTimeout(popup, 3000);
 }

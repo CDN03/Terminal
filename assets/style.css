@@ -2,6 +2,10 @@
     font-family: 'JetBrains Mono';
     src: url('JetBrainMono.woff');
 }
+@font-face {
+    font-family: 'JetBrains Mono Bold';
+    src: url('JetBrainsMonoBold.woff');
+}
 body {
     background-color: #000;
 }
@@ -15,6 +19,7 @@ body {
     border-radius: 5px;
     font-family: 'JetBrains Mono';
     width: 50vh;
+    font-size: 16px;
 }
 input:focus{
     outline: none;
@@ -53,4 +58,35 @@ a:link {
   a:active {
     color: rgb(41, 41, 41);
     text-decoration: none;
+  }
+
+  .changelog {
+    background-color: white;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-family: 'JetBrains Mono', sans-serif;
+    padding: 25px;
+    font-size: 25px;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: auto;
+    transition: 1s;
+  }
+  .changelog .titles {
+    font-size: 50px;
+    font-family: 'JetBrains Mono Bold';
+  }
+  #msrs {
+    border-radius: 10px;
+    background-color: #000;
+    color: white;
+    padding: 8px;
+    opacity: 0.5;
+    transition: 1s;
+    border: solid red 3px;
+  }
+  #msrs:hover {
+    opacity: 1;
   }
