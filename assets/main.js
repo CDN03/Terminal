@@ -14,6 +14,9 @@ function rts(event) {
             document.getElementById("input1").value = "";
         } else if (input1 == "help") {
             document.getElementById("output").innerHTML += "Available Commands:" + "<br />";
+            document.getElementById("output").innerHTML += 'echo - Used to print' + "<br />";
+            document.getElementById("output").innerHTML += 'help - Prints this menu' + "<br />";
+            document.getElementById("output").innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
             document.getElementById("output").innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' +"<br />";
             document.getElementById("input1").value = "";
         } else if (input1 == "dir") {
