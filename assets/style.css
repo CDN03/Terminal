@@ -67,12 +67,13 @@ a:link {
     margin-right: auto;
     width: 50%;
     font-family: 'JetBrains Mono', sans-serif;
-    padding: 25px;
-    font-size: 25px;
+    padding: 18px;
+    font-size: 18px;
     height: auto;
     margin-top: 100px;
     margin-bottom: auto;
     transition: 1s;
+    text-align: center;
   }
   .changelog .titles {
     font-size: 50px;
@@ -90,3 +91,8 @@ a:link {
   #msrs:hover {
     opacity: 1;
   }
+  ul {
+    list-style-position: inside;
+    text-align: center;
+  }
+  

@@ -1,7 +1,4 @@
-window.onload = function() {
-    var inputrsf = document.getElementById("input1").focus();
-    console.log('Successfully Loaded All of Commands.');
-  }
+
 function popup() {
     document.getElementById("popup1").style.display = "none";
 }
@@ -11,12 +8,14 @@ function rts(event) {
     if (keys == "Enter") {
         if (input1 == "echo") {
             document.getElementById("output").innerHTML += "ECHO is on" + "<br />";
+            console.log('"echo" Command Executed');
             document.getElementById("input1").value = "";
         } else if (input1 == "help") {
             document.getElementById("output").innerHTML += "Available Commands:" + "<br />";
             document.getElementById("output").innerHTML += 'echo - Used to print' + "<br />";
             document.getElementById("output").innerHTML += 'help - Prints this menu' + "<br />";
             document.getElementById("output").innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
+            console.log('"help" Command Executed');
             document.getElementById("output").innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' +"<br />";
             document.getElementById("input1").value = "";
         } else if (input1 == "dir") {
@@ -27,9 +26,11 @@ function rts(event) {
             document.getElementById("output").innerHTML += "    > JetBrainsMonoBold.woff" + "<br />";
             document.getElementById("output").innerHTML += "    > main.js" + "<br />";
             document.getElementById("output").innerHTML += "    > style.css" + "<br />";
+            console.log('"dir" Command Executed');
             document.getElementById("input1").value = "";
         } else {
             document.getElementById("output").innerHTML += "Invalid Command." + "<br />";
+            console.log('Invalid Command Executed');
             document.getElementById("input1").value = "";
         }
     }
@@ -37,4 +38,6 @@ function rts(event) {
 function str() {
     document.getElementById("output").innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
     const vvdr = setTimeout(popup, 3000);
+    console.log('Successfully Loaded All of Commands.');
+    console.log('Yet another useless website by MohsenEMX');
 }
