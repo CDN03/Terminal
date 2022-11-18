@@ -12,12 +12,12 @@ function rts(event) {
             if (ecoh == "" || ecoh == " ") {
                 document.getElementById("output").innerHTML += 'Echo is On.' + "<br />";
             }
-            console.log('"echo" Command Executed ' + 'Content: ' + ecoh);
+            console.log('"echo" Command Executed'+ ' -- ' + 'Content: ' + ecoh);
             document.getElementById("output").innerHTML += '<p>'+ ecoh + '</p>' + "<br />";
             document.getElementById("input1").value = "";
         } else if (input1 == "help") {
             document.getElementById("output").innerHTML += "Available Commands:" + "<br />";
-            document.getElementById("output").innerHTML += 'echo - Used to print' + "<br />";
+            document.getElementById("output").innerHTML += 'echo <string> - Used to print custom text or see Echo state' + "<br />";
             document.getElementById("output").innerHTML += 'help - Prints this menu' + "<br />";
             document.getElementById("output").innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
             console.log('"help" Command Executed');
@@ -35,7 +35,7 @@ function rts(event) {
             document.getElementById("input1").value = "";
         } else {
             document.getElementById("output").innerHTML += "Invalid Command." + "<br />";
-            console.log('Invalid Command Executed');
+            console.error('Invalid Command' + ' -- ' + 'Failed to Execute');
             document.getElementById("input1").value = "";
         }
     }
