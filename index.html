@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
     <head>
         <title>Web Terminal</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
         <link href="assets/style.css" rel="stylesheet">
         <script src="assets/main.js"></script>
     </head>
     <body onload="str()">
     <div class="main-panel">
         <p id="output"></p>
+        <div class="main-content">
         <p>Enter a Command To Execute: </p>
-        <input class="input-f" onkeydown="rts(event)" id="input1">
-        <button class="go-f" onclick="rts()">Enter</button>
+        <p id="thing">[guest@locslhost] $</p><input class="input-f" onkeydown="rts(event)" id="input1">
         <!-- to-do : fix the button -->
+        <!-- Future Mohsen: I won't fix the button rn -->
+        </div>
     </div>
     </body>
 </html>
