@@ -14,8 +14,12 @@
     </head>
     <body onload="str()">
         <div class="changelog" id="popup1">
+            <div class="chs" id="rfds">
             <p class="titles"><b>Latest Changelog</b></p>
             <ul>
+                <p style="font-size: 16px;">v1.3b</p>
+                <li>Fixed code not working</li>
+                <li>Code Clean Up</li>
                 <p style="font-size: 16px;">v1 Full Release</p>
                 <li>Added About, Ver and clear commands</li>
                 <li>Code Clean Up</li>
@@ -32,12 +36,16 @@
             </ul>
             <button onclick="popup()" id="msrs">I understand.</button>
             </div>
-        <div class="main-panel">
-            <p id="output"></p>
-        <div class="main-content">
-        <p>Enter a Command To Execute: </p>
-        <p id="thing">[guest@localhost] $</p><input class="input-f" onkeydown="rts(event);" id="input1" autofocus>
         </div>
+        <div class="main-panel">
+            <div class="main-content">
+                <p>Enter a Command To Execute: </p>
+                <p id="thing">[guest@localhost] <span id="rssd">$</span></p><input class="input-f" onkeydown="rts(event);" id="input1" autofocus>
+                </div>
+                <br />
+                <br />
+                <br />
+            <p id="output"></p>
     </div>
     </body>
 </html>

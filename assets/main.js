@@ -1,5 +1,8 @@
-const output = document.getElementById('input1');
 function popup() {
+    document.getElementById("popup1").style.display = "block";
+    const vvdr = setTimeout(parp, 3000);
+}
+function parp() {
     document.getElementById("popup1").style.display = "none";
 }
 function rts(event) {
@@ -11,53 +14,54 @@ function rts(event) {
         if (ecohc != -1) {
             var ecoh = input1.slice(5, 5000);
             if (ecoh == "" || ecoh == " ") {
-                output.innerHTML += 'Echo is On.' + "<br />";
+                document.getElementById('output').innerHTML += 'Echo is On.' + "<br />";
             }
             console.log('"echo" Command Executed' + ' -- ' + 'Content: ' + ecoh);
-            output.innerHTML += '<p>' + ecoh + '</p>' + "<br />";
+            document.getElementById('output').innerHTML += '<p>' + ecoh + '</p>' + "";
             document.getElementById("input1").value = "";
         } else if (input1 == "help") {
-            output.innerHTML += "Available Commands:" + "<br />";
-            output.innerHTML += "ver - Used to see terminal version" + "<br />";
-            output.innerHTML += 'echo <string> - Used to print custom text or see Echo state' + "<br />";
-            output.innerHTML += 'help - Prints this menu' + "<br />";
-            output.innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
+            document.getElementById('output').innerHTML += "Available Commands:" + "<br />";
+            document.getElementById('output').innerHTML += "ver - Used to see terminal version" + "<br />";
+            document.getElementById('output').innerHTML += 'echo <string> - Used to print custom text or see Echo state' + "<br />";
+            document.getElementById('output').innerHTML += 'help - Prints this menu' + "<br />";
+            document.getElementById('output').innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
             console.log('"help" Command Executed');
-            output.innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' + "<br />";
+            document.getElementById('output').innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' + "<br />";
             document.getElementById("input1").value = "";
         } else if (input1 == "dir") {
-            output.innerHTML += "List of Available Directories:" + "<br />";
-            output.innerHTML += "/assets/" + "<br />";
-            output.innerHTML += "    > favicon.ico" + "<br />";
-            output.innerHTML += "    > JetBrainMono.woff" + "<br />";
-            output.innerHTML += "    > JetBrainsMonoBold.woff" + "<br />";
-            output.innerHTML += "    > main.js" + "<br />";
-            output.innerHTML += "    > style.css" + "<br />";
+            document.getElementById('output').innerHTML += "List of Available Directories:" + "<br />";
+            document.getElementById('output').innerHTML += "/assets/" + "<br />";
+            document.getElementById('output').innerHTML += "    > favicon.ico" + "<br />";
+            document.getElementById('output').innerHTML += "    > JetBrainMono.woff" + "<br />";
+            document.getElementById('output').innerHTML += "    > JetBrainsMonoBold.woff" + "<br />";
+            document.getElementById('output').innerHTML += "    > main.js" + "<br />";
+            document.getElementById('output').innerHTML += "    > style.css" + "<br />";
             console.log('"dir" Command Executed');
             document.getElementById("input1").value = "";
         } else if (input1 == "ver") {
-            output.innerHTML += "Version: v1" + "<br />";
+            document.getElementById('output').innerHTML += "Version: v1" + "<br />";
             console.log('"ver" Command Executed');
             document.getElementById("input1").value = "";
         } else if (input1 == "clear") {
-            output.innerHTML = "";
+            document.getElementById('output').innerHTML = "";
             console.log('"clear" Command Executed');
             document.getElementById("input1").value = "";
         } else if (input1 == "about") {
-            output.innerHTML += "About Me:" + "<br />";
-            output.innerHTML += '<a href="https://github.com/MohsenEMX">' + "<p>My Github</p>" + '</a>' + "<br />";
-            output.innerHTML += "Mohtava" + "<br />";
+            document.getElementById('output').innerHTML += "About Me:" + "<br />";
+            document.getElementById('output').innerHTML += '<a href="https://github.com/MohsenEMX">' + "<p>My Github</p>" + '</a>' + "<br />";
+            document.getElementById('output').innerHTML += "Mohtava" + "<br />";
+            document.getElementById('input1').innerHTML = "";
         } 
         else {
-            output.innerHTML += "Invalid Command." + "<br />";
-            console.error('Invalid Command' + ' -- ' + 'Failed to Execute');
-            output.value = "";
+            document.getElementById('output').innerHTML += "Invalid Command." + "<br />";
+            console.error('Invalid Command' + ' -- ' + 'Failed to Execute' + ' -- Failed Command: ' + input1);
+            document.getElementById('input1').value = "";
         }
     }
 }
 function str() {
-    output.innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
-    const vvdr = setTimeout(popup, 3000);
+    document.getElementById('output').innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
+    const vvdr = setTimeout(popup, 100);
     console.log('Successfully Loaded All of Commands.');
     console.log('Yet another useless website by MohsenEMX');
 }
