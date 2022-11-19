@@ -31,12 +31,14 @@ input {
 }
 .main-panel .main-content {
     position: fixed;
-    bottom: 0px;
+    top: 0px;
     padding: 5px;
+    display: block;
 }
 #thing {
     display: inline;
     position: relative;
+    font-family: 'JetBrains Mono Bold';
 }
 
 a {
