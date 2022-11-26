@@ -1,15 +1,13 @@
+var title = "Web Terminal";
+
 function popup() {
-    document.getElementById("popup1").style.display = "block";
-    const vvdr = setTimeout(parp, 3000);
-}
-function parp() {
     document.getElementById("popup1").style.display = "none";
 }
 function rts(event) {
     var input1 = document.getElementById("input1").value;
     var keys = event.key;
     var ecohc = input1.indexOf('echo');
-    // var mamad = input1.indexOf('dir');
+    var titl = input1.indexOf('title');
     if (keys == "Enter") {
         if (ecohc != -1) {
             var ecoh = input1.slice(5, 5000);
@@ -25,6 +23,9 @@ function rts(event) {
             document.getElementById('output').innerHTML += 'echo <string> - Used to print custom text or see Echo state' + "<br />";
             document.getElementById('output').innerHTML += 'help - Prints this menu' + "<br />";
             document.getElementById('output').innerHTML += 'dir - Displays live view of content in localhost' + "<br />";
+            document.getElementById('output').innerHTML += 'title - Let\'s you see or change web page\'s title!' + "<br />";
+            document.getElementById('output').innerHTML += 'exit - Closes Open Terminal' + "<br />";
+            document.getElementById('output').innerHTML += 'close - Closes Open Terminal' + "<br />";
             console.log('"help" Command Executed');
             document.getElementById('output').innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' + "<br />";
             document.getElementById("input1").value = "";
@@ -51,8 +52,24 @@ function rts(event) {
             document.getElementById('output').innerHTML += '<a href="https://github.com/MohsenEMX">' + "<p>My Github</p>" + '</a>' + "<br />";
             document.getElementById('output').innerHTML += "Mohtava" + "<br />";
             document.getElementById('input1').innerHTML = "";
-        } 
-        else {
+        } else if (titl != -1) {
+            var titap = input1.slice(6, 5000);
+            if (titap == "" || titap ==" ") {
+                document.getElementById('output').innerHTML += 'Terminal Title is: ' + '<span class="spec">' + title + '</span>' + "<br />";
+                console.log('"title" Command Executed.')
+                document.getElementById('input1').value = "";
+            } else {
+                document.title = titap;
+                title = titap;
+                document.getElementById('output').innerHTML += "Successfully changed title!" + "<br />";
+                console.log('"title" Command Executed' + ' -- ' + 'Content: ' + titap);
+                document.getElementById('input1').value = "";
+            }
+        } else if (input1 == "exit" || input1 == "close") {
+            document.getElementById('output').innerHTML += "Clsoing Terminal..." + "<br />";
+            document.getElementById('input1').value = "";
+            window.close();
+        } else {
             document.getElementById('output').innerHTML += "Invalid Command." + "<br />";
             console.error('Invalid Command' + ' -- ' + 'Failed to Execute' + ' -- Failed Command: ' + input1);
             document.getElementById('input1').value = "";
@@ -61,7 +78,6 @@ function rts(event) {
 }
 function str() {
     document.getElementById('output').innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
-    const vvdr = setTimeout(popup, 100);
     console.log('Successfully Loaded All of Commands.');
     console.log('Yet another useless website by MohsenEMX');
 }
