@@ -69,6 +69,9 @@ function rts(event) {
             document.getElementById('output').innerHTML += "Clsoing Terminal..." + "<br />";
             document.getElementById('input1').value = "";
             window.close();
+            close_window();
+            close();
+            open(location, '_self').close();
         } else {
             document.getElementById('output').innerHTML += "Invalid Command." + "<br />";
             console.error('Invalid Command' + ' -- ' + 'Failed to Execute' + ' -- Failed Command: ' + input1);
