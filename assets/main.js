@@ -7,9 +7,11 @@ function rts(event) {
     var input1 = document.getElementById("input1").value;
     var keys = event.key;
     var ecohc = input1.indexOf('echo');
+    var ecohc1 = input1.indexOf('ECHO');
+    var ecohc2 = input1.indexOf('Echo');
     var titl = input1.indexOf('title');
     if (keys == "Enter") {
-        if (ecohc != -1) {
+        if (ecohc != -1 || ecohc1 != -1 || ecohc2 != -1) {
             var ecoh = input1.slice(5, 5000);
             if (ecoh == "" || ecoh == " ") {
                 document.getElementById('output').innerHTML += 'Echo is On.' + "<br />";
@@ -17,7 +19,7 @@ function rts(event) {
             console.log('"echo" Command Executed' + ' -- ' + 'Content: ' + ecoh);
             document.getElementById('output').innerHTML += '<p>' + ecoh + '</p>' + "";
             document.getElementById("input1").value = "";
-        } else if (input1 == "help") {
+        } else if (input1 == "help" || input1 == "HELP" || input1 == "Help") {
             document.getElementById('output').innerHTML += "Available Commands:" + "<br />";
             document.getElementById('output').innerHTML += "ver - Used to see terminal version" + "<br />";
             document.getElementById('output').innerHTML += 'echo <string> - Used to print custom text or see Echo state' + "<br />";
@@ -29,7 +31,7 @@ function rts(event) {
             console.log('"help" Command Executed');
             document.getElementById('output').innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' + "<br />";
             document.getElementById("input1").value = "";
-        } else if (input1 == "dir") {
+        } else if (input1 == "dir" || input1 == "DIR" || input1 == "Dir") {
             document.getElementById('output').innerHTML += "List of Available Directories:" + "<br />";
             document.getElementById('output').innerHTML += "/assets/" + "<br />";
             document.getElementById('output').innerHTML += "    > favicon.ico" + "<br />";
@@ -69,7 +71,6 @@ function rts(event) {
             document.getElementById('output').innerHTML += "Clsoing Terminal..." + "<br />";
             document.getElementById('input1').value = "";
             window.close();
-            close_window();
             close();
             open(location, '_self').close();
         } else {
@@ -83,4 +84,11 @@ function str() {
     document.getElementById('output').innerHTML += "Tip: Try to use 'Enter' key to execute command." + "<br />";
     console.log('Successfully Loaded All of Commands.');
     console.log('Yet another useless website by MohsenEMX');
+    let betadet = {
+        name: "2.4b",
+        workdone: "60%",
+        errors: "969696969"
+    }
+    console.log('Beta Details: ');
+    console.warn(betadet);
 }
