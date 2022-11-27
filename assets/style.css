@@ -78,6 +78,7 @@ a:link {
     text-align: center;
     animation: fadeIn 1s linear;
     display: block;
+    z-index: 50;
   }
   .changelog .titles {
     font-size: 50px;
