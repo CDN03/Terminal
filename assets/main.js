@@ -1,3 +1,5 @@
+const version_index = "2.4b";
+const build_index = 431;
 var title = "Web Terminal";
 
 function popup() {
@@ -85,9 +87,10 @@ function str() {
     console.log('Successfully Loaded All of Commands.');
     console.log('Yet another useless website by MohsenEMX');
     let betadet = {
-        name: "2.4b",
+        name: version_index,
         workdone: "60%",
-        errors: "969696969"
+        errors: "969696969",
+        build: build_index
     }
     console.log('Beta Details: ');
     console.warn(betadet);
