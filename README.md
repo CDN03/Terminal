@@ -1,4 +1,4 @@
 # Terminal
 A terminal, in Browser?
-## Bruh ???
-Mohtava
+## Future
+I don't know if i'm going to continue this or not, but I'll happily accept Merge Requests and forks
