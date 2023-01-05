@@ -115,7 +115,7 @@ function rts(event) {
                             document.getElementById('input1').value = "";
                         })
                         .catch(data => {
-                            ping_avg += 999;
+                            ping_avg += data * 1656;
                         console.error("Ping failed: " + data);
                         document.getElementById('output').innerHTML += 'Ping to ' + pingreq + ' Failed, Error Code: ' + '<span class="error">' + data + '</span>' + "<br />";
                         document.getElementById('input1').value = "";
@@ -128,7 +128,6 @@ function rts(event) {
                         else if (ping_avg > 700) 
                         {ping_cclass = 'pingred';}
                          else if (ping_avg > 300) ping_cclass = 'pingyellow';
-
                         document.getElementById('output').innerHTML += 'Ping to ' + pingreq + ' Completed, Average Ping is: ' + `<span class="${ping_cclass}">` + ping_avg + ' ms' + '</span>' + "<br />";
                         clearInterval(xrd);
                     }
