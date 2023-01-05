@@ -1,5 +1,5 @@
-const version_index = "2.4b";
-const build_index = 431;
+const version_index = "2.5b";
+const build_index = 433;
 var title = "Web Terminal";
 
 function popup() {
@@ -8,10 +8,19 @@ function popup() {
 function rts(event) {
     var input1 = document.getElementById("input1").value;
     var keys = event.key;
+    // checking for echo
     var ecohc = input1.indexOf('echo');
     var ecohc1 = input1.indexOf('ECHO');
     var ecohc2 = input1.indexOf('Echo');
+    // checking for title
     var titl = input1.indexOf('title');
+    var titl1 = input1.indexOf('Title');
+    var titl2 = input1.indexOf('TITLE');
+    // checking for ping
+    var pping = input1.indexOf('ping');
+    var pping1 = input1.indexOf('Ping');
+    var pping2 = input1.indexOf('PING');
+    
     if (keys == "Enter") {
         if (ecohc != -1 || ecohc1 != -1 || ecohc2 != -1) {
             var ecoh = input1.slice(5, 5000);
@@ -56,7 +65,7 @@ function rts(event) {
             document.getElementById('output').innerHTML += '<a href="https://github.com/MohsenEMX">' + "<p>My Github</p>" + '</a>' + "<br />";
             document.getElementById('output').innerHTML += "Mohtava" + "<br />";
             document.getElementById('input1').innerHTML = "";
-        } else if (titl != -1) {
+        } else if (titl != -1 || titl1 != -1) {
             var titap = input1.slice(6, 5000);
             if (titap == "" || titap ==" ") {
                 document.getElementById('output').innerHTML += 'Terminal Title is: ' + '<span class="spec">' + title + '</span>' + "<br />";
@@ -75,7 +84,27 @@ function rts(event) {
             window.close();
             close();
             open(location, '_self').close();
-        } else {
+        } else if (pping != -1 || pping1 != -1 || pping2 != -1) {
+            var pingreq = input1.slice(5, 5000);
+            if (pingreq == "" || pingreq == " ") {
+                document.getElementById('output').innerHTML += 'Local Terminal Ping is: ' + '<span class="ping">' + '1'+ ' ms' + '</span>' + "<br />";
+                console.log('"title" Command Executed.')
+                document.getElementById('input1').value = "";
+            } else {
+                var p = new Ping();
+                // You may use Promise if the browser supports ES6
+                p.ping(pingreq)
+                .then(data => {
+                    console.log("Successful ping: " + data);
+                    document.getElementById('input1').value = "";
+                })
+                .catch(data => {
+                console.error("Ping failed: " + data);
+                document.getElementById('input1').value = "";
+                })
+            }
+        } 
+        else {
             document.getElementById('output').innerHTML += "Invalid Command." + "<br />";
             console.error('Invalid Command' + ' -- ' + 'Failed to Execute' + ' -- Failed Command: ' + input1);
             document.getElementById('input1').value = "";
@@ -88,8 +117,8 @@ function str() {
     console.log('Yet another useless website by MohsenEMX');
     let betadet = {
         name: version_index,
-        workdone: "60%",
-        errors: "969696969",
+        workdone: "70%",
+        errors: "A lot",
         build: build_index
     }
     console.log('Beta Details: ');
