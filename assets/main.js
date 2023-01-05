@@ -1,5 +1,5 @@
-const version_index = "2.5b";
-const build_index = 433;
+const version_index = "2.6b";
+const build_index = 511;
 var title = "Web Terminal";
 
 function popup() {
@@ -20,6 +20,9 @@ function rts(event) {
     var pping = input1.indexOf('ping');
     var pping1 = input1.indexOf('Ping');
     var pping2 = input1.indexOf('PING');
+    // checking for https or http in input
+    var pinghttps = input1.indexOf('https://');
+    var pinghttp = input1.indexOf('http://');
     
     if (keys == "Enter") {
         if (ecohc != -1 || ecohc1 != -1 || ecohc2 != -1) {
@@ -39,6 +42,7 @@ function rts(event) {
             document.getElementById('output').innerHTML += 'title - Let\'s you see or change web page\'s title!' + "<br />";
             document.getElementById('output').innerHTML += 'exit - Closes Open Terminal' + "<br />";
             document.getElementById('output').innerHTML += 'close - Closes Open Terminal' + "<br />";
+            document.getElementById('output').innerHTML += 'ping <address> - Pings the address given 4 times' + "<br />";
             console.log('"help" Command Executed');
             document.getElementById('output').innerHTML += '<a href="https://github.com/CDN03/terminal/issues">' + "<p>If there is an issue, feel free to share them here.</p>" + '</a>' + "<br />";
             document.getElementById("input1").value = "";
@@ -88,20 +92,47 @@ function rts(event) {
             var pingreq = input1.slice(5, 5000);
             if (pingreq == "" || pingreq == " ") {
                 document.getElementById('output').innerHTML += 'Local Terminal Ping is: ' + '<span class="ping">' + '1'+ ' ms' + '</span>' + "<br />";
-                console.log('"title" Command Executed.')
+                console.log('"ping" Command Executed.')
                 document.getElementById('input1').value = "";
             } else {
+                var e_counter = 0;
+                var ping_avg = 0;
+                var ping_cclass = 'ping';
                 var p = new Ping();
                 // You may use Promise if the browser supports ES6
-                p.ping(pingreq)
-                .then(data => {
-                    console.log("Successful ping: " + data);
-                    document.getElementById('input1').value = "";
-                })
-                .catch(data => {
-                console.error("Ping failed: " + data);
-                document.getElementById('input1').value = "";
-                })
+                if (pinghttp != -1 || pinghttps != -1) {
+                    // nothing?
+                } else if (pinghttp == -1 || pinghttps == -1) {
+                    pingreq = 'http://' + pingreq;
+                }
+                var xrd = setInterval(function() {
+                    if (e_counter < 4) {
+                        p.ping(pingreq)
+                        .then(data => {
+                            ping_avg += data;
+                            console.log("Successful ping: " + data);
+                            document.getElementById('output').innerHTML += 'Ping to ' + pingreq + ' is: ' + '<span class="ping">' + data + ' ms' + '</span>' + "<br />";
+                            document.getElementById('input1').value = "";
+                        })
+                        .catch(data => {
+                            ping_avg += 999;
+                        console.error("Ping failed: " + data);
+                        document.getElementById('output').innerHTML += 'Ping to ' + pingreq + ' Failed, Error Code: ' + '<span class="error">' + data + '</span>' + "<br />";
+                        document.getElementById('input1').value = "";
+                        })
+                        e_counter++;
+                    } else if (e_counter <= 4) {
+                        ping_avg = ping_avg / 4;
+                        if (ping_avg < 200) 
+                        {ping_cclass = 'ping';} 
+                        else if (ping_avg > 700) 
+                        {ping_cclass = 'pingred';}
+                         else if (ping_avg > 300) ping_cclass = 'pingyellow';
+
+                        document.getElementById('output').innerHTML += 'Ping to ' + pingreq + ' Completed, Average Ping is: ' + `<span class="${ping_cclass}">` + ping_avg + ' ms' + '</span>' + "<br />";
+                        clearInterval(xrd);
+                    }
+                },1000);
             }
         } 
         else {

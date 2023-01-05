@@ -133,5 +133,14 @@ a:link {
     color:#1fc438;
   }
   .ping {
-    color:#038116;
+    color:#00f525;
+  }
+  .error {
+    color:#c90000;
+  }
+  .pingred {
+    color:#960000;
+  }
+  .pingyellow {
+    color:#ffc400;
   }
