@@ -18,7 +18,7 @@ body {
     background-color: #000;
     border-radius: 5px;
     font-family: 'JetBrains Mono';
-    width: 50vh;
+    width: 170vh;
     font-size: 16px;
 }
 input:focus{
@@ -143,4 +143,16 @@ a:link {
   }
   .pingyellow {
     color:#ffc400;
+  }
+  .base64 {
+    color:#008cff;
+  }
+  img {
+    border-radius: 10px;
+    padding: 50px;
+    z-index: 400;
+  }
+  .helptitle {
+    font-size: 28px;
+    color: rgb(0, 255, 13);
   }

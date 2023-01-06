@@ -3,7 +3,7 @@
     <head>
         <title>Web Terminal</title>
         <meta charset="UTF-8">
-        <meta name="description" content="A free useless terminal made by @MohsenEMX">
+        <meta name="description" content="A free useless open source terminal made by @MohsenEMX">
         <meta name="keywords" content="terminal, terminal in web,google, ">
         <meta name="author" content="@MohsenEMX">
         <meta property="og:image" content="assets/og.png" />
@@ -11,13 +11,25 @@
         <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
         <link href="assets/style.css" rel="stylesheet">
         <script src="assets/lib/ping.js" type="text/javascript"></script>
-        <script src="assets/main.js"></script>
+        
     </head>
     <body onload="str()">
         <div class="changelog" id="popup1">
             <div class="chs" id="rfds">
             <p class="titles"><b>Latest Changelog</b></p>
             <ul>
+                <p style="font-size: 16px;">v2.9</p>
+                <li>Added Image decoding to base64 tools</li>
+                <li>Code and Comment clean up</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
+                <p style="font-size: 16px;">v2.8</p>
+                <li>Added Base64 tools</li>
+                <li>Fixed Last Command Issues</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
+                <p style="font-size: 16px;">v2.7b</p>
+                <li>Code Clean up and optimization</li>
+                <li>Added Last Command Function</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
                 <p style="font-size: 16px;">v2.6b</p>
                 <li>Added display to ping resaults</li>
                 <li>Fixed ping problem</li>
@@ -25,28 +37,22 @@
                 <p style="font-size: 16px;">v2.4b</p>
                 <li>Added Ping Command</li>
                 <p style="font-size: 10px;">5 Jan 2023</p>
-                <p style="font-size: 16px;">v2.3b</p>
-                <li>Tried to fix Exit & Close commands. (again)</li>
-                <li>Console now accepts full-upper-case commands!</li>
-                <li>Code Mess Up</li>
-                <p style="font-size: 16px;">v2.2b</p>
-                <li>Tried to fix Exit & Close commands.</li>
-                <li>Changelog screen fix</li>
-                <p style="font-size: 16px;">v2.1b</p>
-                <li>Fixed Close & Exit commands</li>
             </ul>
             <button onclick="popup()" id="msrs">I understand.</button>
             </div>
         </div>
         <div class="main-panel">
             <div class="main-content">
-                <p>Enter a Command To Execute: </p>
-                <p id="thing">[guest@localhost] <span id="rssd">$</span></p><input class="input-f" onkeydown="rts(event);" id="input1" autofocus>
+                <p id="thing">[guest@localhost] <span id="rssd">$</span></p><input class="input-f" placeholder="Enter a command to execute" onkeydown="rts(event);" id="input1" autofocus>
                 </div>
                 <br />
                 <br />
                 <br />
             <p id="output"></p>
     </div>
+    <div class="imgs" id="imgs">
+        <img src="" alt="" id="res_img">
+    </div>
+    <script src="assets/main.js"></script>
     </body>
 </html>
