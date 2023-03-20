@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recent Change Logs Pop-up</title>
+	<style>
+		.popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 99999;
+			display: none;
+			justify-content: center;
+			align-items: center;
+		}
+		.popup h2 {
+			margin-top: 0;
+		}
+		.popup__content {
+			background: white;
+			padding: 20px;
+			position: relative;
+			border-radius: 10px;
+			max-width: 80%;
+			max-height: 80%;
+			overflow-y: auto;
+		}
+		.popup__content button {
+			background-color: #007bff;
+			color: white;
+			border-radius: 5px;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+		.popup__close-btn {
+			position: absolute;
+			top: 5px;
+			right: 10px;
+			cursor: pointer;
+			font-weight: bold;
+			font-size: 20px;
+			border: none;
+			background-color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<button class="open-btn">View recent changes</button>
+
+	<div class="popup">
+		<div class="popup__content">
+			<button class="popup__close-btn">&times;</button>
+			<h2>Recent Change Logs</h2>
+			<ul>
+				<li>Fixed issue with login form</li>
+				<li>Updated contact page with new information</li>
+				<li>Improved site speed with image optimization</li>
+				<li>Added new blog post about upcoming features</li>
+			</ul>
+			<button class="popup__close-btn">Close</button>
+		</div>
+	</div>
+
+	<script>
+		const openBtn = document.querySelector('.open-btn');
+		const closeBtns = document.querySelectorAll('.popup__close-btn');
+		const popup = document.querySelector('.popup');
+
+		openBtn.addEventListener('click', () => {
+			popup.style.display = 'flex';
+		});
+
+		closeBtns.forEach(closeBtn => {
+			closeBtn.addEventListener('click', () => {
+				popup.style.display = 'none';
+			})
+		});
+
+		window.addEventListener('click', (event) => {
+			if (event.target == popup) {
+				popup.style.display = 'none';
+			}
+		});
+	</script>
+</body>
+</html>
