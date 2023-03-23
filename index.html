@@ -5,28 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Terminal 2.0</title>
+	<link rel="stylesheet" href="./assets/fonts.css">
     <link rel="stylesheet" href="./assets/popup.css">
+	<link rel="stylesheet" href="./assets/main.css">
 </head>
 <body>
     <button class="open-btn">View recent changes</button>
 
 	<div class="popup">
 		<div class="popup__content">
-			<button class="popup__close-btn">&times;</button>
 			<h2>Recent Change Logs</h2>
 			<ul>
-				<li>Fixed issue with login form</li>
-				<li>Updated contact page with new information</li>
-				<li>Improved site speed with image optimization</li>
-				<li>Added new blog post about upcoming features</li>
-			</ul>
-			<button class="popup__close-btn">Close</button>
+                <p style="font-size: 16px;">v3 alpha - build 1</p>
+                <li>WTCore v1 alpha 1 released</li>
+                <li>Changed style of Changelog</li>
+                <li>Started proccess of Re-writing code</li>
+                <p style="font-size: 10px;">23 Mar 2023</p>
+                <p style="font-size: 16px;">v2.9</p>
+                <li>Added Image decoding to base64 tools</li>
+                <li>Code and Comment clean up</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
+                <p style="font-size: 16px;">v2.8</p>
+                <li>Added Base64 tools</li>
+                <li>Fixed Last Command Issues</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
+                <p style="font-size: 16px;">v2.7b</p>
+                <li>Code Clean up and optimization</li>
+                <li>Added Last Command Function</li>
+                <p style="font-size: 10px;">6 Jan 2023</p>
+            </ul>
+			<button class="popup__close-btn">I understand, Do not show again</button>
 		</div>
 	</div>
-      <script src="./assets/popup.js"></script>
-      <script>
-        
-        
-      </script>
+    <p id="output"></p>
+    <img src="" id="imout"></img>
+    <p id="prefix">[guest@VirturalHost] </p>
+    <input type="text" id="in" placeholder="Press Enter to execute command" > </input>
+    <script src="./assets/popup.js"></script>
+    <script src="./assets/etc.js"></script>
+    <script src="./core/core.js"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+html {
+    overflow: hidden;
+}
+body {
+    background-color: #000000;
+    font-family: 'JetBrainMono';
+}
+#in {
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px;
+    outline: none;
+    width: 250px;
+    border: none;
+}
+#output {
+    color: #ffffff;
+}
+#prefix {
+    display: inline;
+    color: #ffffff;
+    font-family: 'JetBrainMonoBold';
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'JetBrainMono';
+    src: url('./JetBrainMono.woff');
+}
+@font-face {
+    font-family: 'JetBrainMonoBold';
+    src: url('./JetBrainsMonoBold.woff');
+}

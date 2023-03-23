@@ -20,7 +20,7 @@ window.addEventListener('click', (event) => {
 let doShow = localStorage.getItem("show_recent_changes");
         if (doShow == null) {
             popup.style.display = 'flex';
-            localStorage.setItem("show_recent_changes",1);
+            localStorage.setItem("show_recent_changes", false);
         } else {
             
         }
