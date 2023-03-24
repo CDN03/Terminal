@@ -1,7 +1,10 @@
+const core_ver = "WTCore v1 alpha 6";
+const wt_ver = "v3 alpha - build 5";
+
 // Declaring and selecting required objects
 var inp = document.querySelector("#in");
 var out = document.querySelector("#output");
-var imout = document.querySelector("#imout");
+var imout = document.querySelector("#imout"); // Useless for now
 let cmd_content = "";
 // Possible Errors
 var errors = [
@@ -11,7 +14,7 @@ var errors = [
     },
     {
         code: 1,
-        message: "Procces exited by User"
+        message: "Procces ended by User"
     }
 ]
 // Change Input Element Width based on length of command
@@ -32,30 +35,21 @@ function execute(e) {
     cmd_content = inp.value;
     let cmd_parts = cmd_content.split(" ");
     cmd_parts[0] = cmd_parts[0].toLowerCase();
-    var isEcho = cmd_parts[0].indexOf("echo");
-    var isSCL = cmd_parts[0].indexOf("scl");
-    var isTitle = cmd_parts[0].indexOf("title");
-    var isClear = cmd_parts[0].indexOf("clear");
-    var isClear2 = cmd_parts[0].indexOf("cls");
-    var isColor = cmd_parts[0].indexOf("color");
-    var isExit = cmd_parts[0].indexOf("exit");
-    var isExit2 = cmd_parts[0].indexOf("close");
-    var isSOT = cmd_parts[0].indexOf("sot");
-    var isHelp = cmd_parts[0].indexOf("help");
-    var isRep = cmd_parts[0].indexOf("rep");
-    if (isEcho == 0) echo(cmd_content);
-    else if (isSCL == 0) scl();
-    else if (isTitle == 0) title(cmd_content);
-    else if (isClear == 0 || isClear2 == 0) clear();
-    else if (isColor == 0) color(cmd_content);
-    else if (isExit == 0 || isExit2 == 0) exit(cmd_content);
-    else if (isSOT == 0) sot();
-    else if (isHelp == 0) help(cmd_content);
-    else if (isRep == 0) rep();
+    out.innerHTML += "[guest@VirturalHost] " + cmd_content + "<br />";
+    if (cmd_parts[0].indexOf("echo") == 0) echo(cmd_content);
+    else if (cmd_parts[0].indexOf("scl") == 0) scl();
+    else if (cmd_parts[0].indexOf("title") == 0) title(cmd_content);
+    else if (cmd_parts[0].indexOf("clear") == 0 || cmd_parts[0].indexOf("cls") == 0) clear();
+    else if (cmd_parts[0].indexOf("color") == 0) color(cmd_content);
+    else if (cmd_parts[0].indexOf("exit") == 0 || cmd_parts[0].indexOf("close") == 0) exit(cmd_content);
+    else if (cmd_parts[0].indexOf("sot") == 0) sot();
+    else if (cmd_parts[0].indexOf("help") == 0) help(cmd_content);
+    else if (cmd_parts[0].indexOf("rep") == 0) rep();
     else failed();
     inp.value = "";
     out.innerHTML += "<br />";
     inp.style.width = 250 + "px";
+    
 }
 function echo(content) {
     let fullSen = content.slice(5);
@@ -64,7 +58,7 @@ function echo(content) {
     } else {
         out.innerHTML += fullSen;
     }
-}
+} // [guest@VirturalHost]
 function title(content) {
     let fullSen = content.slice(6);
     if (fullSen.trim() === '') {
@@ -193,6 +187,11 @@ function help(command) {
                 out.innerHTML += "If no string is given, Displays the general help" + a[0];
                 break;
             }
+            case "rep" : {
+                out.innerHTML += a[1] + "help" + a[2] + " <String> - Prints help about given command." + a[0];
+                out.innerHTML += "If no string is given, Displays the general help" + a[0];
+                break;
+            }
             default : {
                 out.innerHTML += a[3] + "Error: Command does not exist or is not in help database yet." + a[2];
             }
@@ -202,4 +201,8 @@ function help(command) {
 function rep() {
     out.innerHTML += "If you have any issues, please report them here: " + "<br />";
     out.innerHTML += "<span class=\"url\">" + "<a href=\"https://github.com/CDN03/terminal/issues\">"+ "https://github.com/CDN03/terminal/issues" + "</a>" + "</span>";
+}
+function ver() {
+    out.innerHTML += "WTCore Version: " + core_ver + "<br />";
+    out.innerHTML += "Web Terminal Version: " + wt_ver;
 }
