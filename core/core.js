@@ -157,12 +157,40 @@ function help(command) {
                 out.innerHTML += "Otherwise, will set the current terminal title as given string" + a[0];
                 break;
             }
-            case "clear" : {
+            case "scl" : {
                 out.innerHTML += a[1] + "scl" + a[2] + " - Displays the Chabgelog screen." + a[0];
                 break;
             }
-            case "scl" : {
-                out.innerHTML += a[1] + "scl" + a[2] + " - Displays the Chabgelog screen." + a[0];
+            case "clear" : {
+                out.innerHTML += a[1] + "clear" + a[2] + " - Clears the console, alias: " + a[1] + "cls" + a[2] + a[0];
+                break;
+            }
+            case "cls" : {
+                out.innerHTML += a[1] + "cls" + a[2] + " - Clears the console, alias: " + a[1] + "clear" + a[2] + a[0];
+                break;
+            }
+            case "color" : {
+                out.innerHTML += a[1] + "color" + a[2] + " <String> - Sets the given string as the terminal color." + a[0];
+                out.innerHTML += "Given string can be a number from 0 - 9, or a RGB color code" + a[0];
+                break;
+            }
+            case "exit" : {
+                out.innerHTML += a[1] + "exit" + a[2] + " <Number> - Exits the process with given Code, alias: " + a[1] + "close" + a[2] + a[0];
+                out.innerHTML += "If no number is given, exits with code 1" + a[0];
+                break;
+            }
+            case "close" : {
+                out.innerHTML += a[1] + "close" + a[2] + " <Number> - Exits the process with given Code, alias: " + a[1] + "exit" + a[2] + a[0];
+                out.innerHTML += "If no number is given, exits with code 1" + a[0];
+                break;
+            }
+            case "sot" : {
+                out.innerHTML += a[1] + "sot" + a[2] + " - Redirects to old Web Terminal" + a[0];
+                break;
+            }
+            case "help" : {
+                out.innerHTML += a[1] + "help" + a[2] + " <String> - Prints help about given command." + a[0];
+                out.innerHTML += "If no string is given, Displays the general help" + a[0];
                 break;
             }
             default : {
