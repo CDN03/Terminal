@@ -1,10 +1,5 @@
-const openBtn = document.querySelector('.open-btn');
 const closeBtns = document.querySelectorAll('.popup__close-btn');
 const popup = document.querySelector('.popup');
-
-openBtn.addEventListener('click', () => {
-    popup.style.display = 'flex';
-});
 
 closeBtns.forEach(closeBtn => {
 	closeBtn.addEventListener('click', () => {

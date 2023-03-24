@@ -13,6 +13,7 @@ body {
     outline: none;
     width: 250px;
     border: none;
+    font-family: 'JetBrainMono';
 }
 #output {
     color: #ffffff;
@@ -25,4 +26,21 @@ body {
 .special {
     color: #eaff00;
     font-family: 'JetBrainMonoBold';
+}
+.error {
+    color: #ec0505;
+    font-family: 'JetBrainMono';
+}
+.url {
+    color: #575757;
+    font-family: 'JetBrainMonoBold';
+}
+.url a {
+    color: #616161;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.url a:hover {
+    color: #f7f7f7;
+    text-decoration: underline;
 }

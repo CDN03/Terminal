@@ -3,6 +3,17 @@ var inp = document.querySelector("#in");
 var out = document.querySelector("#output");
 var imout = document.querySelector("#imout");
 let cmd_content = "";
+// Possible Errors
+var errors = [
+    {
+        code: 0,
+        meesage: "Unknown Error"
+    },
+    {
+        code: 1,
+        message: "Procces exited by User"
+    }
+]
 // Change Input Element Width based on length of command
 inp.addEventListener("input", function() {
     inp.style.width = inp.value.length * 10 + "px";
@@ -31,6 +42,7 @@ function execute(e) {
     var isExit2 = cmd_parts[0].indexOf("close");
     var isSOT = cmd_parts[0].indexOf("sot");
     var isHelp = cmd_parts[0].indexOf("help");
+    var isRep = cmd_parts[0].indexOf("rep");
     if (isEcho == 0) echo(cmd_content);
     else if (isSCL == 0) scl();
     else if (isTitle == 0) title(cmd_content);
@@ -39,6 +51,7 @@ function execute(e) {
     else if (isExit == 0 || isExit2 == 0) exit(cmd_content);
     else if (isSOT == 0) sot();
     else if (isHelp == 0) help(cmd_content);
+    else if (isRep == 0) rep();
     else failed();
     inp.value = "";
     out.innerHTML += "<br />";
@@ -62,7 +75,7 @@ function title(content) {
     }
 }
 function failed() {
-    out.innerHTML += "Error: Entered command is not valid";
+    out.innerHTML += "<span class=\"error\">" + "Error: Command is not valid" + "</span>";
 }
 function scl() {
     popup.style.display = 'flex';
@@ -117,7 +130,7 @@ function sot() {
     window.location.href = "http://terminal.nashef.ir/Old";
 }
 function help(command) {
-    let a = ["<br />","<span class=\"special\">", "</span>"];
+    let a = ["<br />","<span class=\"special\">", "</span>", "<span class=\"error\">"];
 
     let hcommand = command.slice(5);
     if (hcommand.trim() === "") {
@@ -131,6 +144,34 @@ function help(command) {
         out.innerHTML += a[1] + "sot" + a[2] + " - Displays the old Web Terminal." + a[0];
         out.innerHTML += a[1] + "help" + a[2] + " <String> - Prints help about given command." + a[0];
     } else {
-
+        switch (hcommand) {
+            case "echo" : {
+                out.innerHTML += a[1] + "echo" + a[2] + " <String> - Prints the given string to console." + a[0];
+                out.innerHTML += "If no string is given, prints the current Echo state (On by default)" + a[0];
+                out.innerHTML += "Otherwise, will print the given string." + a[0];
+                break;
+            }
+            case "title" : {
+                out.innerHTML += a[1] + "title" + a[2] + " <String> - Sets the given string as terminal title." + a[0];
+                out.innerHTML += "If no string is given, prints the current terminal title" + a[0];
+                out.innerHTML += "Otherwise, will set the current terminal title as given string" + a[0];
+                break;
+            }
+            case "clear" : {
+                out.innerHTML += a[1] + "scl" + a[2] + " - Displays the Chabgelog screen." + a[0];
+                break;
+            }
+            case "scl" : {
+                out.innerHTML += a[1] + "scl" + a[2] + " - Displays the Chabgelog screen." + a[0];
+                break;
+            }
+            default : {
+                out.innerHTML += a[3] + "Error: Command does not exist or is not in help database yet." + a[2];
+            }
+        }
     }
+}
+function rep() {
+    out.innerHTML += "If you have any issues, please report them here: " + "<br />";
+    out.innerHTML += "<span class=\"url\">" + "<a href=\"https://github.com/CDN03/terminal/issues\">"+ "https://github.com/CDN03/terminal/issues" + "</a>" + "</span>";
 }
