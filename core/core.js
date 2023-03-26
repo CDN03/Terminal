@@ -1,10 +1,9 @@
-const core_ver = "WTCore v1 alpha 6";
-const wt_ver = "v3 alpha - build 5";
+const core_ver = "WTCore v1 beta 1";
+const wt_ver = "v3 beta 1";
 
 // Declaring and selecting required objects
 var inp = document.querySelector("#in");
 var out = document.querySelector("#output");
-var imout = document.querySelector("#imout"); // Useless for now
 let cmd_content = "";
 // Possible Errors
 var errors = [
@@ -45,6 +44,7 @@ function execute(e) {
     else if (cmd_parts[0].indexOf("sot") == 0) sot();
     else if (cmd_parts[0].indexOf("help") == 0) help(cmd_content);
     else if (cmd_parts[0].indexOf("rep") == 0) rep();
+    else if (cmd_parts[0].indexOf("base64") == 0) base64(cmd_content);
     else failed();
     inp.value = "";
     out.innerHTML += "<br />";
@@ -137,6 +137,8 @@ function help(command) {
         out.innerHTML += a[1] + "exit" + a[2] + " <Number> - Exits the process with given Code, alias: " + a[1] + "close" + a[2] + a[0];
         out.innerHTML += a[1] + "sot" + a[2] + " - Displays the old Web Terminal." + a[0];
         out.innerHTML += a[1] + "help" + a[2] + " <String> - Prints help about given command." + a[0];
+        out.innerHTML += a[1] + "rep" + a[2] + " - Provides URL to report a bug/issue" + a[0];
+        out.innerHTML += a[1] + "base64" + a[2] + "<Option> <String> - Accepts 2 options: -e to encode given string into base64, -d to decode given string to normal text" + a[0];
     } else {
         switch (hcommand) {
             case "echo" : {
@@ -188,8 +190,12 @@ function help(command) {
                 break;
             }
             case "rep" : {
-                out.innerHTML += a[1] + "help" + a[2] + " <String> - Prints help about given command." + a[0];
-                out.innerHTML += "If no string is given, Displays the general help" + a[0];
+                out.innerHTML += a[1] + "rep" + a[2] + " - Provides URL to report a bug/issue" + a[0];
+                break;
+            }
+            case "base64" : {
+                out.innerHTML += a[1] + "base64" + a[2] + "<Option> <String> - Accepts 2 options: -e to encode given string into base64, -d to decode given string to normal text" + a[0];
+                out.innerHTML += "If no option is given, Throws an error" + a[0];
                 break;
             }
             default : {
@@ -205,4 +211,22 @@ function rep() {
 function ver() {
     out.innerHTML += "WTCore Version: " + core_ver + "<br />";
     out.innerHTML += "Web Terminal Version: " + wt_ver;
+}
+function base64(content) {
+    let baseS = content.slice(7);
+    let baseM = content.slice(10);
+    let baseF = baseS.split(" ");
+    if (baseF[0] == "-e") {
+        let b64str = btoa(baseM);
+        out.innerHTML += b64str;
+    } else if (baseF[0] == "-d") {
+        let nrmstr = atob(baseM);
+        out.innerHTML += nrmstr;
+    } else {
+        out.innerHTML += "Invalid argument : " + baseF[0] + " Try \"help base64\"";
+    }
+}
+function ver() {
+    out.innerHTML += "WebTerminal Core: " + core_ver + "<br/>";
+    out.innerHTML += "WebTerminal : " + wt_ver + "<br/>";
 }

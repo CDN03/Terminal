@@ -1,11 +1,9 @@
 html {
     overflow-y: hidden;
-    overflow-x: hidden;
 }
 body {
     background-color: #000000;
     font-family: 'JetBrainMono';
-    overflow-x: hidden;
 }
 #in {
     border-radius: 10px;
