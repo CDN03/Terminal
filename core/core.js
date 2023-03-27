@@ -1,10 +1,13 @@
-const core_ver = "WTCore v1 beta 1";
-const wt_ver = "v3 beta 1";
+// Defining the Module Versions
+const core_ver = "WTCore v1 beta 1"; // WTCore Version
+const wt_ver = "v3 beta 1"; // WebTerminal Version
+const ui_ver = "v1 beta"; // WebTerminal UI Version
 
 // Declaring and selecting required objects
 var inp = document.querySelector("#in");
 var out = document.querySelector("#output");
 let cmd_content = "";
+let lastcmdc = "help"; // Will make it so you can use multipe commands
 // Possible Errors
 var errors = [
     {
@@ -14,21 +17,34 @@ var errors = [
     {
         code: 1,
         message: "Procces ended by User"
+    },
+    {
+        code: 2,
+        message: "Invalid Command"
+    },
+    {
+        code: 3,
+        message: "Undefined Error"
+    },
+    {
+        code: 4,
+        message: "Invalid Option/Argument"
     }
 ]
+
 // Change Input Element Width based on length of command
 inp.addEventListener("input", function() {
     inp.style.width = inp.value.length * 10 + "px";
 }); 
 
-// Main Core
+// Main Command Execution Function
 inp.addEventListener("keydown", function(e) {
     
     if (e.code === "Enter") {
         execute(e);
     }
 });
-
+// Main Command Handling Function
 function execute(e) {
     // All code goes here
     cmd_content = inp.value;
@@ -49,7 +65,7 @@ function execute(e) {
     inp.value = "";
     out.innerHTML += "<br />";
     inp.style.width = 250 + "px";
-    
+    lastcmdc = cmd_content;
 }
 function echo(content) {
     let fullSen = content.slice(5);
@@ -74,9 +90,11 @@ function failed() {
 function scl() {
     popup.style.display = 'flex';
 }
+// Just clears the "output" element
 function clear() {
     out.innerHTML = "";
 }
+// Decimal to Hexadecimal Conversion
 function decimalToHex(d, padding) {
     var hex = Number(d).toString(16);
     padding = typeof (padding) === "undefined" || padding === null ? padding = 2 : padding;
@@ -120,9 +138,11 @@ function exit(code) {
         document.querySelector('.inparea').style.display = 'none';
     }
 }
+// Old Terminal
 function sot() {
     window.location.href = "http://terminal.nashef.ir/Old";
 }
+// TODO: Move entire help database to a seperate Array/Object
 function help(command) {
     let a = ["<br />","<span class=\"special\">", "</span>", "<span class=\"error\">"];
 
@@ -212,6 +232,7 @@ function ver() {
     out.innerHTML += "WTCore Version: " + core_ver + "<br />";
     out.innerHTML += "Web Terminal Version: " + wt_ver;
 }
+// Utilises the JS Atob and Btoa functions
 function base64(content) {
     let baseS = content.slice(7);
     let baseM = content.slice(10);
@@ -228,5 +249,16 @@ function base64(content) {
 }
 function ver() {
     out.innerHTML += "WebTerminal Core: " + core_ver + "<br/>";
+    out.innerHTML += "WebTerminal UI : " + ui_ver + "<br/>";
     out.innerHTML += "WebTerminal : " + wt_ver + "<br/>";
+}
+// LastCMD Function
+inp.addEventListener("keydown", function(e) {
+    
+    if (e.code === "ArrowUp") {
+        lastcmd(e);
+    }
+});
+function lastcmd(e) {
+    inp.value = lastcmdc;
 }
